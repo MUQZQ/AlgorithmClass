@@ -2,6 +2,13 @@ package class01;
 
 import java.util.Arrays;
 
+/**
+ * @project: AlgorithmClass
+ * @description: 插入排序
+ * @author: QZQ
+ * @date: 2022/8/14
+ **/
+
 public class Code01_SelectionSort {
     public static void selectionSort(int[] arr) {
         if (arr == null || arr.length < 2) {
@@ -19,6 +26,7 @@ public class Code01_SelectionSort {
             swap(arr, i, minIndex);
         }
     }
+
 
     private static void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
@@ -82,9 +90,6 @@ public class Code01_SelectionSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {-64, 62, 46, 7, -15, -43, 76, 91, 26, 4, 30, -18, -26, -14, 66, -35, 78, 41, -30, 14, 1, 36, -24, 43, 36, -17, 6, -34, -46, -24, 7, 13, 10, -15, 42, 74, -8, -17, -13, 24, -50, -40, 6, 90, -9, -15, 57, -81, -42, -27, 66, 12, 13};
-        selectionSort(arr);
-
         int testTimes = 10000;
         int maxSize = 100;
         int maxValue = 100;
