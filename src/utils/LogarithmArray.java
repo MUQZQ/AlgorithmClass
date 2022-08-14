@@ -45,6 +45,16 @@ public class LogarithmArray {
         return arr;
     }
 
+    /**
+     * 生成随机数组
+     * maxSize = 10;
+     * maxValue = 100;
+     *
+     * @return
+     */
+    public static int[] generateRandomArray() {
+        return generateRandomArray(100, 100);
+    }
 
     /**
      * 复制数组
