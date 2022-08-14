@@ -9,7 +9,7 @@ import java.util.Arrays;
  **/
 public class Code02_BubbleSort {
     public static void bubbleSort(int[] arr) {
-        if (arr == null) {
+        if (arr == null || arr.length < 2) {
             return;
         }
 
