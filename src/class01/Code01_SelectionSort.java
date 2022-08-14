@@ -3,7 +3,6 @@ package class01;
 import java.util.Arrays;
 
 /**
- * @project: AlgorithmClass
  * @description: 插入排序
  * @author: QZQ
  * @date: 2022/8/14
