@@ -3,7 +3,7 @@ package class01;
 import java.util.Arrays;
 
 /**
- * @description: 插入排序
+ * @description: 选择排序
  * @author: QZQ
  * @date: 2022/8/14
  **/
