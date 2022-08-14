@@ -17,6 +17,18 @@ public class LogarithmArray {
         Arrays.sort(arr);
     }
 
+    /**
+     * 数据交换
+     *
+     * @param arr
+     * @param j
+     * @param i
+     */
+    public static void swap(int[] arr, int j, int i) {
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
+    }
 
     /**
      * 生成随机数组
@@ -57,7 +69,7 @@ public class LogarithmArray {
      * @param arr2
      * @return
      */
-    private static boolean isEqual(int[] arr1, int[] arr2) {
+    public static boolean isEqual(int[] arr1, int[] arr2) {
         if (arr1 == null && arr2 == null) {
             return true;
         }
@@ -75,6 +87,17 @@ public class LogarithmArray {
         return true;
     }
 
+
+    /**
+     * 数组不相等
+     *
+     * @param arr1
+     * @param arr2
+     * @return
+     */
+    public static boolean isNotEqual(int[] arr1, int[] arr2) {
+        return !isEqual(arr1, arr2);
+    }
 
     /**
      * 打印数组

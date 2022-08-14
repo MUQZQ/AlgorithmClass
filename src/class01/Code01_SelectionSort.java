@@ -1,6 +1,7 @@
 package class01;
 
-import java.util.Arrays;
+
+import static utils.LogarithmArray.*;
 
 /**
  * @description: 选择排序
@@ -27,67 +28,6 @@ public class Code01_SelectionSort {
     }
 
 
-    private static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-    }
-
-    //for test
-    public static void comparator(int[] arr) {
-        Arrays.sort(arr);
-    }
-
-    //for test
-    public static int[] generateRandomArray(int maxSize, int maxValue) {
-        int[] arr = new int[(int) (Math.random() * (maxSize + 1))];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * (maxValue + 1)) - (int) (Math.random() * maxValue);
-        }
-        return arr;
-    }
-
-    //for test
-    public static int[] copyArray(int[] arr) {
-        if (arr == null) {
-            return null;
-        }
-        int[] res = new int[arr.length];
-        System.arraycopy(arr, 0, res, 0, arr.length);
-        return res;
-    }
-
-    //for test
-    public static boolean isEqual(int[] arr1, int[] arr2) {
-        if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
-            return false;
-        }
-        if (arr1 == null) {
-            return true;
-        }
-        if (arr1.length != arr2.length) {
-            return false;
-        }
-
-        for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] != arr2[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    //for test
-    public static void printArray(int[] arr) {
-        if (arr == null) {
-            return;
-        }
-        for (int j : arr) {
-            System.out.print(j + ",");
-        }
-        System.out.println();
-    }
-
     public static void main(String[] args) {
         int testTimes = 10000;
         int maxSize = 100;
@@ -98,7 +38,7 @@ public class Code01_SelectionSort {
             int[] arr2 = copyArray(arr1);
             selectionSort(arr1);
             comparator(arr2);
-            if (!isEqual(arr1, arr2)) {
+            if (isNotEqual(arr1, arr2)) {
                 succeed = false;
                 printArray(arr1);
                 printArray(arr2);
