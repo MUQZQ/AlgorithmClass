@@ -1,5 +1,7 @@
 package class02;
 
+import java.util.Arrays;
+
 /**
  * @description:
  * @author: QZQ
@@ -19,9 +21,7 @@ public class Code01_EvenTimesOddTimes {
     // arr中，有两种数，出现奇数次
     public static void printOddTimesNum2(int[] arr) {
         int eor = 0;
-        for (int j : arr) {
-            eor ^= j;
-        }
+        for (int j : arr) eor ^= j;
 
         // a 和 b是两种数
         // eor != 0
@@ -30,14 +30,9 @@ public class Code01_EvenTimesOddTimes {
         // rightOne :00000000000001000
         int rightOne = eor & (-eor);
 
-        int onlyOne = 0;
-        for (int j : arr) {
-            //  arr[1] =  111100011110000
-            // rightOne=  000000000010000
-            if ((j & rightOne) != 0) {
-                onlyOne ^= j;
-            }
-        }
+        int onlyOne = Arrays.stream(arr).filter(j -> (j & rightOne) != 0).reduce(0, (a, b) -> a ^ b);
+        //  arr[1] =  111100011110000
+        // rightOne=  000000000010000
         System.out.println(onlyOne + " " + (eor ^ onlyOne));
     }
 
