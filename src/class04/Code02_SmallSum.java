@@ -37,8 +37,7 @@ public class Code02_SmallSum {
         int i = 0;
         int res = 0;
         while (p1 <= mid && p2 <= r) {
-            if
-            (arr[p1] < arr[p2]) {
+            if (arr[p1] < arr[p2]) {
                 // 先算结果，再赋值，因为有指针变动的副作用
                 res += (r - p2 + 1) * arr[p1];
                 help[i++] = arr[p1++];
@@ -52,11 +51,8 @@ public class Code02_SmallSum {
         while (p2 <= r) {
             help[i++] = arr[p2++];
         }
-
         //每次排完序，都要将原数组排序部分刷新
-        for (i = 0; i < help.length; i++) {
-            arr[l + i] = help[i];
-        }
+        System.arraycopy(help, 0, arr, l, help.length);
         return res;
     }
 
