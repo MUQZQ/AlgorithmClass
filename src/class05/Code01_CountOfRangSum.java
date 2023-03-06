@@ -53,7 +53,7 @@ public class Code01_CountOfRangSum {
             while (windowL <= M && sum[windowL] < min) {
                 windowL++;
             }
-            ans += windowR - windowL; //
+            ans += windowR - windowL; // 在[max,min]内的个数
         }
 
         // 数据结构merge部分
