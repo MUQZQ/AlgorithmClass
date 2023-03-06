@@ -52,6 +52,7 @@ public class Code01_MergeSort {
         while (p2 <= R) {
             help[i++] = arr[p2++];
         }
+        //每次排完序，都要将原数组排序部分刷新
         System.arraycopy(help, 0, arr, L, help.length);
     }
 

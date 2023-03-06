@@ -66,7 +66,9 @@ public class Code03_ReversePair {
         int p2 = r;
         int res = 0;
         while (p1 >= L && p2 > m) {
+
             res += arr[p1] > arr[p2] ? (p2 - m) : 0;
+            
             help[i--] = arr[p1] > arr[p2] ? arr[p1--] : arr[p2--];
         }
         while (p1 >= L) {
@@ -75,6 +77,7 @@ public class Code03_ReversePair {
         while (p2 > m) {
             help[i--] = arr[p2--];
         }
+        //每次排完序，都要将原数组排序部分刷新
         System.arraycopy(help, 0, arr, L, help.length);
         return res;
     }

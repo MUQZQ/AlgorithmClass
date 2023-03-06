@@ -60,9 +60,8 @@ public class Code04_BiggerThanRightTwice {
         while (p2 <= r) {
             help[i++] = arr[p2++];
         }
-        for (i = 0; i < help.length; i++) {
-            arr[l + i] = help[i];
-        }
+        //每次排完序，都要将原数组排序部分刷新
+        System.arraycopy(help, 0, arr, l, help.length);
         return ans;
     }
 
