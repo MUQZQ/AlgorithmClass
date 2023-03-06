@@ -42,7 +42,7 @@ public class Code01_CountOfRangSum {
             while (windowR <= mid && arr[windowR] <= max) {
                 windowR++;
             }
-            while (windowR <= mid && arr[windowL] < min) {
+            while (windowL <= mid && arr[windowL] < min) {
                 windowL++;
             }
             ans += windowR - windowL;
