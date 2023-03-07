@@ -44,9 +44,11 @@ public class Code01_CountOfRangSum {
         int windowR = L;
 
         // [windowL,windowR)
-        for (int i = M + 1; i <= R; i++) { // 有数组遍历，前缀和转换目标范围
+        for (int i = M + 1; i <= R; i++) { // 右数组遍历，前缀和转换目标范围
             long min = sum[i] - upper;
             long max = sum[i] - lower;
+
+            // 左数组的目标数据，不可能大于max
             while (windowR <= M && sum[windowR] <= max) {
                 windowR++;
             }
