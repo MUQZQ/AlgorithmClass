@@ -25,9 +25,14 @@ public class LogarithmArray {
      * @param i
      */
     public static void swap(int[] arr, int j, int i) {
-        arr[i] = arr[i] ^ arr[j];
-        arr[j] = arr[i] ^ arr[j];
-        arr[i] = arr[i] ^ arr[j];
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+
+       /*  这种写法有一个问题就是，当要交换的两数是同一个时，会发生错误
+         arr[i] = arr[i] ^ arr[j];
+         arr[j] = arr[i] ^ arr[j];
+         arr[i] = arr[i] ^ arr[j];*/
     }
 
     /**
