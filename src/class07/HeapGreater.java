@@ -3,6 +3,7 @@ package class07;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * T一定要是非基础类型，有基础类型需求包一层
@@ -96,5 +97,10 @@ public class HeapGreater<T> {
         heap.set(j, o1);
         indexMap.put(o2, i);
         indexMap.put(o1, j);
+    }
+
+    // 请返回堆上的所有元素
+    public List<T> getAllElements() {
+        return new ArrayList<>(heap);
     }
 }
