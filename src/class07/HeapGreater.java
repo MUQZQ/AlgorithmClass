@@ -69,11 +69,16 @@ public class HeapGreater<T> {
         heapify(indexMap.get(obj));
     }
 
+    // 请返回堆上的所有元素
+    public List<T> getAllElements() {
+        return new ArrayList<>(heap);
+    }
+
     private void heapify(int index) {
         int left = index * 2 + 1;
         while (left < heapSize) {
-            int right = left + 1;
-            int best = right < heapSize && comp.compare(heap.get(right), heap.get(left)) < 0 ? right : left;
+            int best = left + 1 < heapSize && comp.compare(heap.get(left + 1), heap.get(left)) < 0 ? (left + 1) : left;
+            best = comp.compare(heap.get(best), heap.get(index)) < 0 ? best : index;
             if (best == index) {
                 break;
             }
@@ -99,8 +104,4 @@ public class HeapGreater<T> {
         indexMap.put(o1, j);
     }
 
-    // 请返回堆上的所有元素
-    public List<T> getAllElements() {
-        return new ArrayList<>(heap);
-    }
 }
