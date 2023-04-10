@@ -1,5 +1,8 @@
 package class08;
 
+/**
+ * 前缀查找树
+ */
 public interface Trie {
     /**
      * 添加某个字符串，可以重复添加，每次算1个

@@ -2,7 +2,9 @@ package class08;
 
 import java.util.HashMap;
 
-// 前缀树节点类型
+/**
+ * 前缀树节点类型
+ */
 public class Node {
     public static class Node1 {
         public int pass;
