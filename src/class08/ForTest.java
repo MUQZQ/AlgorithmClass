@@ -26,18 +26,16 @@ public class ForTest {
         int testTimes = 100000;
         for (int i = 0; i < testTimes; i++) {
             String[] arr = generateRandomStringArray(arrLen, strLen);
-            Trie trie1;
-            Trie trie2;
+
+            Trie trie1 = new Trie1();
+            Trie trie2 = new Trie2();
             Trie right;
             if (!Objects.equals(codeTy, "Code01")) {
-                trie1 = new Code02_TrieTree.Trie1();
-                trie2 = new Code02_TrieTree.Trie2();
                 right = new Code02_TrieTree.Right();
             } else {
-                trie1 = new Code01_TrieTree.Trie1();
-                trie2 = new Code01_TrieTree.Trie2();
                 right = new Code01_TrieTree.Right();
             }
+
             for (String s : arr) {
                 double decide = Math.random();
                 if (decide < 0.25) {
