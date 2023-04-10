@@ -2,52 +2,14 @@ package class08;
 
 import java.util.HashMap;
 
-import static class08.ForTest.generateRandomStringArray;
+import static class08.ForTest.testStart;
 import static class08.Node.Node1;
 import static class08.Node.Node2;
 
 // 该程序完全正确
 public class Code02_TrieTree {
-
-
     public static void main(String[] args) {
-        int arrLen = 100;
-        int strLen = 20;
-        int testTimes = 100000;
-        for (int i = 0; i < testTimes; i++) {
-            String[] arr = generateRandomStringArray(arrLen, strLen);
-            Trie1 trie1 = new Trie1();
-            Trie2 trie2 = new Trie2();
-            Right right = new Right();
-            for (String s : arr) {
-                double decide = Math.random();
-                if (decide < 0.25) {
-                    trie1.insert(s);
-                    trie2.insert(s);
-                    right.insert(s);
-                } else if (decide < 0.5) {
-                    trie1.delete(s);
-                    trie2.delete(s);
-                    right.delete(s);
-                } else if (decide < 0.75) {
-                    int ans1 = trie1.search(s);
-                    int ans2 = trie2.search(s);
-                    int ans3 = right.search(s);
-                    if (ans1 != ans2 || ans2 != ans3) {
-                        System.out.println("Oops!");
-                    }
-                } else {
-                    int ans1 = trie1.prefixNumber(s);
-                    int ans2 = trie2.prefixNumber(s);
-                    int ans3 = right.prefixNumber(s);
-                    if (ans1 != ans2 || ans2 != ans3) {
-                        System.out.println("Oops!");
-                    }
-                }
-            }
-        }
-        System.out.println("finish!");
-
+        testStart("Code02");
     }
 
 
@@ -58,6 +20,11 @@ public class Code02_TrieTree {
             root = new Node1();
         }
 
+        /**
+         * 添加某个字符串，可以重复添加，每次算1个
+         *
+         * @param word
+         */
         @Override
         public void insert(String word) {
             if (word == null) {
@@ -78,6 +45,12 @@ public class Code02_TrieTree {
             node.end++;
         }
 
+        /**
+         * 删掉某个字符串，可以重复删除，每次算1个
+         *
+         * @param word
+         */
+        @Override
         public void delete(String word) {
             if (search(word) != 0) {
                 char[] chs = word.toCharArray();
@@ -96,7 +69,13 @@ public class Code02_TrieTree {
             }
         }
 
-        // word这个单词之前加入过几次
+        /**
+         * 查询某个字符串在结构中还有几个
+         *
+         * @param word
+         * @return
+         */
+        @Override
         public int search(String word) {
             if (word == null) {
                 return 0;
@@ -114,7 +93,13 @@ public class Code02_TrieTree {
             return node.end;
         }
 
-        // 所有加入的字符串中，有几个是以pre这个字符串作为前缀的
+        /**
+         * 查询有多少个字符串，是以str做前缀的
+         *
+         * @param pre
+         * @return
+         */
+        @Override
         public int prefixNumber(String pre) {
             if (pre == null) {
                 return 0;
@@ -141,6 +126,13 @@ public class Code02_TrieTree {
             root = new Node2();
         }
 
+
+        /**
+         * 添加某个字符串，可以重复添加，每次算1个
+         *
+         * @param word
+         */
+        @Override
         public void insert(String word) {
             if (word == null) {
                 return;
@@ -160,6 +152,12 @@ public class Code02_TrieTree {
             node.end++;
         }
 
+        /**
+         * 删掉某个字符串，可以重复删除，每次算1个
+         *
+         * @param word
+         */
+        @Override
         public void delete(String word) {
             if (search(word) != 0) {
                 char[] chs = word.toCharArray();
@@ -178,7 +176,13 @@ public class Code02_TrieTree {
             }
         }
 
-        // word这个单词之前加入过几次
+        /**
+         * 查询某个字符串在结构中还有几个
+         *
+         * @param word
+         * @return
+         */
+        @Override
         public int search(String word) {
             if (word == null) {
                 return 0;
@@ -196,7 +200,13 @@ public class Code02_TrieTree {
             return node.end;
         }
 
-        // 所有加入的字符串中，有几个是以pre这个字符串作为前缀的
+        /**
+         * 查询有多少个字符串，是以str做前缀的
+         *
+         * @param pre
+         * @return
+         */
+        @Override
         public int prefixNumber(String pre) {
             if (pre == null) {
                 return 0;
@@ -223,6 +233,12 @@ public class Code02_TrieTree {
             box = new HashMap<>();
         }
 
+
+        /**
+         * 添加某个字符串，可以重复添加，每次算1个
+         *
+         * @param word
+         */
         @Override
         public void insert(String word) {
             if (!box.containsKey(word)) {
@@ -232,6 +248,11 @@ public class Code02_TrieTree {
             }
         }
 
+        /**
+         * 删掉某个字符串，可以重复删除，每次算1个
+         *
+         * @param word
+         */
         @Override
         public void delete(String word) {
             if (box.containsKey(word)) {
@@ -244,11 +265,24 @@ public class Code02_TrieTree {
         }
 
 
+        /**
+         * 查询某个字符串在结构中还有几个
+         *
+         * @param word
+         * @return
+         */
         @Override
         public int search(String word) {
             return box.getOrDefault(word, 0);
         }
 
+        /**
+         * 查询有多少个字符串，是以str做前缀的
+         *
+         * @param pre
+         * @return
+         */
+        @Override
         public int prefixNumber(String pre) {
             int count = 0;
             for (String cur : box.keySet()) {
@@ -259,5 +293,4 @@ public class Code02_TrieTree {
             return count;
         }
     }
-
 }

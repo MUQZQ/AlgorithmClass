@@ -4,7 +4,7 @@ import class08.Node.Node2;
 
 import java.util.HashMap;
 
-import static class08.ForTest.generateRandomStringArray;
+import static class08.ForTest.testStart;
 import static class08.Node.Node1;
 
 /**
@@ -12,42 +12,7 @@ import static class08.Node.Node1;
  */
 public class Code01_TrieTree {
     public static void main(String[] args) {
-        int arrLen = 100;
-        int strLen = 20;
-        int testTimes = 100000;
-        for (int i = 0; i < testTimes; i++) {
-            String[] arr = generateRandomStringArray(arrLen, strLen);
-            Trie1 trie1 = new Trie1();
-            Trie2 trie2 = new Trie2();
-            Right right = new Right();
-            for (String s : arr) {
-                double decide = Math.random();
-                if (decide < 0.25) {
-                    trie1.insert(s);
-                    trie2.insert(s);
-                    right.insert(s);
-                } else if (decide < 0.5) {
-                    trie1.delete(s);
-                    trie2.delete(s);
-                    right.delete(s);
-                } else if (decide < 0.75) {
-                    int ans1 = trie1.search(s);
-                    int ans2 = trie2.search(s);
-                    int ans3 = right.search(s);
-                    if (ans1 != ans2 || ans2 != ans3) {
-                        System.out.println("Oops!");
-                    }
-                } else {
-                    int ans1 = trie1.prefixNumber(s);
-                    int ans2 = trie2.prefixNumber(s);
-                    int ans3 = right.prefixNumber(s);
-                    if (ans1 != ans2 || ans2 != ans3) {
-                        System.out.println("Oops!");
-                    }
-                }
-            }
-        }
-        System.out.println("finish!");
+        testStart("Code01");
     }
 
     public static class Trie1 implements class08.Trie {
