@@ -43,9 +43,23 @@ public class LogarithmArray {
      * @return
      */
     public static int[] generateRandomArray(int maxSize, int maxValue) {
+        return generateRandomArray(maxSize, maxValue, true);
+    }
+
+
+    /**
+     * 生成随机数组(包含负数)
+     *
+     * @param maxSize
+     * @param maxValue
+     * @param negative 是否包含负数
+     * @return
+     */
+    public static int[] generateRandomArray(int maxSize, int maxValue, boolean negative) {
         int[] arr = new int[(int) (Math.random() * (maxSize + 1))];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * (maxValue + 1)) - (int) (Math.random() * maxValue);
+            int v1 = (int) ((maxValue + 1) * Math.random());
+            arr[i] = negative ? v1 - (int) (Math.random() * maxValue) : v1;
         }
         return arr;
     }
